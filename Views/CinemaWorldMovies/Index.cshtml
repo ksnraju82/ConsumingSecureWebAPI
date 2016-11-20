@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MVCWebAPIUsingSecureToken.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CinemaWorld Movies Collection</h2>
+@using (Html.BeginForm("Index", "CinemaWorldMovies", FormMethod.Post))
+{
+    <input type="text" id="txtSearch" name="txtSearch" />
+    <input type="submit" value="Search" id="btnSearch" name="btnSearch" />
+}
+<p></p>
+<table class="table" style="overflow:auto;">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poster)
+            </td>
+
+        </tr>
+    }
+
+</table>
